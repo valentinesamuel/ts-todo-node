@@ -3,8 +3,18 @@ import { TasksController } from './tasks.controller';
 
 export const tasksRouter: Router = Router();
 
-tasksRouter.get('/tasks', async (req: Request, res: Response) => {
-  const tasksController = new TasksController();
-  const allTasks = await tasksController.getAll();
-  res.json(allTasks).status(200)
-});
+tasksRouter.get(
+  '/tasks',
+  async (req: Request, res: Response) => {
+    const tasksController = new TasksController();
+    const allTasks = await tasksController.getAll();
+    res.json(allTasks).status(200);
+  },
+);
+
+tasksRouter.post(
+  'tasks',
+    async (req: Request, res: Response) => {
+      
+  },
+);
