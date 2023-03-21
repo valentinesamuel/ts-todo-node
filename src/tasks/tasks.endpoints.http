@@ -10,6 +10,6 @@ Content-Type: application/json
     "title": "Wolorlowe sit aner",
     "date": "2014-12-08T14:52:33Z",
     "description": "This is a description and that!!",
-    "priority": "qweqe",
+    "priority": "normal",
     "status": "todo"
 }
