@@ -1,7 +1,7 @@
 import { Priority } from './../enums/priority';
-import { body } from 'express-validator';
+import { body, ValidationChain } from 'express-validator';
 import { Status } from '../enums/status';
-export const createValidator = [
+export const createValidator: ValidationChain[] = [
   body('title')
     .not()
     .isEmpty()
@@ -20,7 +20,7 @@ export const createValidator = [
     ),
 
   body('description')
-    .not()
+    .trim()
     .isString()
     .withMessage('Description needs to be in text format'),
 

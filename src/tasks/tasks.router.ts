@@ -1,20 +1,23 @@
+import { createValidator } from './tasks.validator';
 import { Router, Response, Request } from 'express';
-import { TasksController } from './tasks.controller';
+import { tasksController } from './tasks.controller';
+import { validationResult } from 'express-validator';
 
 export const tasksRouter: Router = Router();
 
-tasksRouter.get(
-  '/tasks',
-  async (req: Request, res: Response) => {
-    const tasksController = new TasksController();
-    const allTasks = await tasksController.getAll();
-    res.json(allTasks).status(200);
-  },
-);
+tasksRouter.get('/tasks', tasksController.getAll);
 
 tasksRouter.post(
-  'tasks',
-    async (req: Request, res: Response) => {
-      
+  '/tasks',
+  createValidator,
+  // @ts-ignore
+  async (req: Request, res: Response) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res
+        .status(400)
+        .json({ errors: errors.array() });
+    }
   },
 );
