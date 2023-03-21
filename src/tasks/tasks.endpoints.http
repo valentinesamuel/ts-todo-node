@@ -13,3 +13,14 @@ Content-Type: application/json
     "priority": "normal",
     "status": "todo"
 }
+
+
+# Update a new task
+PUT  http://localhost:3200/tasks
+Content-Type: application/json
+
+{
+    "id": "f1591dca-8559-5b22-bfda-33980c4e243b",
+    "title": "Updated Wolorlowe sit aner",
+    "status": "completed"
+}
